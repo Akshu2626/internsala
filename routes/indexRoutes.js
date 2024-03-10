@@ -16,6 +16,7 @@ const {
 } = require("../controllers/indexController");
 const { isAuthenticated } = require("../middlewares/auth");
 
+
 // GET  / route
 router.get("/", homepage);
 
