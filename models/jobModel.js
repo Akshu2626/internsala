@@ -11,7 +11,6 @@ const jobModel = new mongoose.Schema({
     title: String,
 
     skill: String,
-
     jobtype: {
 
         type: String,
