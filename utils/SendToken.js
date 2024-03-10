@@ -1,0 +1,18 @@
+exports.sendtoken = (Employe, statusCode, res) => {
+    const token = Employe.getjwttoken();
+
+    const options = {
+        expires: new Date(
+            Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+        ),
+        httpOnly: true,
+        // secure:true,
+    }
+
+    res.status(statusCode)
+        .cookie("token", token, options)
+        .json({ success: true, id: Employe._id, token });
+
+
+    res.json({ token })
+}
