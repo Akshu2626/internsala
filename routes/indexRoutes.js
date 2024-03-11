@@ -21,7 +21,7 @@ const { isAuthenticated } = require("../middlewares/auth");
 router.get("/", homepage);
 
 // POST / student
-router.post("/student", currentUser);
+router.post("/student/currentuser", isAuthenticated, currentUser);
 
 // POST / student/signup
 router.post("/student/signup", studentsignup);
