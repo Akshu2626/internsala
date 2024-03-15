@@ -5,7 +5,7 @@ const { catchAsyncErrors } = require("./catchAsyncError");
 exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
     const authorizationHeader = req.cookies;
 
-    if (!authorizationHeader || !authorizationHeader.startsWith("Bearer")) {
+    if (!authorizationHeader) {
         return next(new ErrorHandler("Please provide a valid token", 401));
     }
 
