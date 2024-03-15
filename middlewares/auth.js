@@ -11,11 +11,17 @@ exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
 
     const token = authorizationHeader.split(" ")[1];
 
+
+    
     try {
         const { id } = jwt.verify(token, process.env.JWT_SECRET);
         req.id = id;
+        const ab=jwt.sign(id,process.env.JWT_SECRET,'1h')
         next();
     } catch (error) {
         return next(new ErrorHandler("Invalid or expired token", 401));
     }
+
+
+
 });
