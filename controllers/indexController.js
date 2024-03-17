@@ -7,6 +7,7 @@ const { sendtoken } = require("../utils/SendToken");
 const { sendmail } = require("../utils/nodemailer");
 const path = require("path")
 const imagekit = require("../utils/imagekit").initImageKit();
+const jwt = require('jsonwebtoken');
 
 
 
@@ -42,6 +43,7 @@ exports.studentsignin = catchAsyncErrors(async (req, res, next) => {
 
 
 });
+
 
 exports.studentsignout = catchAsyncErrors(async (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1]; // Token ko extract karein
