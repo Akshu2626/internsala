@@ -55,7 +55,6 @@ exports.studentsignout = catchAsyncErrors(async (req, res, next) => {
             // Token verify hota hai, ab expiration time ko kam karein
             const expirationTime = 0; // 0 kar dena token ko immediately expire kar dega
             const newToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, { expiresIn: expirationTime });
-            
             // Expire hone wala token ko client ko bhejein
             res.setHeader('Authorization', 'Bearer ' + newToken);
             res.json({ message: "Successfully signout" });
