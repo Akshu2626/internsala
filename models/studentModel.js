@@ -59,6 +59,7 @@ const studentModel = new mongoose.Schema({
         default: "0",
     },
 
+    
     avatar: {
         type: Object,
         default: {
