@@ -7,7 +7,7 @@ exports.sendmail = (req, res, next, url) => {
     const transport = nodemailer.createTransport({
 
         service: "gmail",
-        host: "smtp.gmail.com",
+        host: "akshugajbhiye01@gmail.com",
         post: 465,
         auth: {
             user: process.env.MAIL_EMAIL_ADDRESS,
