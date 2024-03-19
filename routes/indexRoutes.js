@@ -41,6 +41,7 @@ router.post("/student/forget-link/:id", studentforgetlink);
 // POST / student/reset-password/studentid
 router.post("/student/reset-password/:id", isAuthenticated, studentresetpassword);
 
+
 // POST / student/update/studentid
 router.post("/student/update/:id", isAuthenticated, studentupdate);
 
