@@ -19,7 +19,7 @@ const internshipModel = new mongoose.Schema({
 
     },
 
-    openings: Number,
+    openings: String,
     from: String,
     to: String,
     duration: String,
