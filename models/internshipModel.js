@@ -15,7 +15,7 @@ const internshipModel = new mongoose.Schema({
     internshiptype: {
 
         type: String,
-        enum: ["In office", "Remote"]
+        // enum: ["In office", "Remote"]
 
     },
 
