@@ -177,7 +177,6 @@ exports.createinternship = catchAsyncErrors(async (req, res, next) => {
 
 exports.readinternship = catchAsyncErrors(async (req, res, next) => {
     const { internships } = await Employe.findById(req.id).populate("internships").exec();
-
     res.status(200).json({
         success: true,
         internships
