@@ -178,10 +178,12 @@ exports.createinternship = catchAsyncErrors(async (req, res, next) => {
 //delete Internship
 
 exports.deleteInternship = catchAsyncErrors(async (req, res, next) => {
-    const { internships } = await Employe.findByIdAndDelete(req.id).populate("internships").exec();
+    const internship = await Internship.findByIdAndDelete(req.params.id).exec();
+
+
     res.status(200).json({
         success: true,
-        internships
+        internship,
     });
 });
 
