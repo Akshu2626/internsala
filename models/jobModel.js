@@ -27,8 +27,6 @@ const jobModel = new mongoose.Schema({
     perks: String,
     assesments: String,
 
-
-
 }, { timestamps: true });
 
 
