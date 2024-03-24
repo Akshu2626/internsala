@@ -182,7 +182,7 @@ exports.deleteInternship = catchAsyncErrors(async (req, res, next) => {
 
     // Find the internship by ID
     // const internship = await Internship.findById(internshipId).exec();
-    const internship = await Internship.findById(internshipId).exec();
+    const internship = await Internship.findById(req.params.id).exec();
     // If internship not found, return 404 Not Found
     if (!internship) {
         return res.status(404).json({ success: false, message: 'Internship not found' });
