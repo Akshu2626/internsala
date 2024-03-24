@@ -178,7 +178,7 @@ exports.createinternship = catchAsyncErrors(async (req, res, next) => {
 //delete Internship
 
 exports.deleteInternship = catchAsyncErrors(async (req, res, next) => {
-    const { internshipId } = req.params.id;
+    const { internshipId } = req.params;
 
     // Find the internship by ID
     // const internship = await Internship.findById(internshipId).exec();
