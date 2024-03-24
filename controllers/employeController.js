@@ -180,28 +180,20 @@ exports.createinternship = catchAsyncErrors(async (req, res, next) => {
 exports.deleteInternship = catchAsyncErrors(async (req, res, next) => {
     const { internshipId } = req.params;
 
-    // Find the internship by ID and populate the associated employee
-    const internship = await Internship.findById(internshipId).populate('internships').exec();
-
+    // Find the internship by ID
+    // const internship = await Internship.findById(internshipId).exec();
+    const internship = await Internship.findById(req.params.id).exec();
     // If internship not found, return 404 Not Found
     if (!internship) {
         return res.status(404).json({ success: false, message: 'Internship not found' });
     }
 
-    // Remove the internship ID from the employee's internships array
-    const employee = internship.employe;
-    employee.internships.pull(internshipId);
-
-    // Save the changes to the employee document
-    await employee.save();
-
-    // Delete the internship document from the database
-    await internship.remove();
+    // Remove the internship from the database
+    await Internship.findByIdAndDelete(internshipId);
 
     // Respond with success message
     res.status(200).json({ success: true, message: 'Internship deleted successfully' });
 });
-
 
 
 
