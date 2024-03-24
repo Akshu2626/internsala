@@ -58,7 +58,7 @@ router.post("/avatar/:id", isAuthenticated, employeavatar);
 router.post("/internship/create", isAuthenticated, createinternship);
 
 //POST/ delete
-router.post('/internship/delete',isAuthenticated,deleteInternship)
+router.post('/internship/delete/:id',isAuthenticated,deleteInternship)
 
 // POST / employe/internship/read
 router.post("/internship/read", isAuthenticated, readinternship);
