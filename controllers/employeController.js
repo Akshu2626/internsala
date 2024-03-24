@@ -181,7 +181,7 @@ exports.deleteInternship = catchAsyncErrors(async (req, res, next) => {
     const { internshipId } = req.params;
 
     // Find the internship by ID and populate the associated employee
-    const internship = await Internship.findById(internshipId).populate('employe').exec();
+    const internship = await Internship.findById(internshipId).populate('internships').exec();
 
     // If internship not found, return 404 Not Found
     if (!internship) {
