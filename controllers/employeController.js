@@ -59,7 +59,6 @@ exports.employesignout = catchAsyncErrors(async (req, res, next) => {
             res.json({ message: "Successfully signout" });
         }
     });
-
 });
 
 
