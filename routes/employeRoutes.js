@@ -64,7 +64,6 @@ router.post("/internship/read", isAuthenticated, readinternship);
 // POST / employe/internship/read/id
 router.post("/internship/read/:id", isAuthenticated, readsingleinternship);
 
-
 // --------------------------jobModel----------------------------------
 
 // POST / employe/job/create
