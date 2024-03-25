@@ -44,9 +44,22 @@ exports.employesignin = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.employesignout = catchAsyncErrors(async (req, res, next) => {
+    const token = req.headers.authorization.split(' ')[1]; // Token ko extract karein
 
-    res.clearCookie("token");
-    res.json({ message: "successfully signout" });
+    // JWT token ko verify karein
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+            // Agar token verify nahi ho paata hai, unauthorized error bhejein
+            return res.status(401).json({ message: 'Unauthorized' });
+        } else {
+            // Token verify hota hai, ab expiration time ko kam karein
+            const expirationTime = 0; // 0 kar dena token ko immediately expire kar dega
+            const newToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, { expiresIn: expirationTime });
+            // Expire hone wala token ko client ko bhejein
+            res.setHeader('Authorization', 'Bearer ' + newToken);
+            res.json({ message: "Successfully signout" });
+        }
+    });
 
 });
 
