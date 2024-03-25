@@ -45,7 +45,6 @@ exports.employesignin = catchAsyncErrors(async (req, res, next) => {
 
 exports.employesignout = catchAsyncErrors(async (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1]; // Token ko extract karein
-
     // JWT token ko verify karein
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
