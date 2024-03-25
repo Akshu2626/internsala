@@ -17,7 +17,7 @@ const {
     createjob,
     readjob,
     readsinglejob,
-    deleteInternship
+    
 } = require("../controllers/employeController");
 const { isAuthenticated } = require("../middlewares/auth");
 
