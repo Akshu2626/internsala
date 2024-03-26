@@ -13,7 +13,7 @@ const {
     studentavatar,
     applyinternship,
     applyjob,
-    studentreadjob,
+    getAllJobsWithStudents,
     studentreadsinglejob,
     studentreadinternship
 
@@ -57,7 +57,7 @@ router.post("/student/avatar/:id", isAuthenticated, studentavatar);
 
 
 //POST /student/read/job
-router.post('/student/job/read',isAuthenticated,studentreadjob);
+router.post('/student/job/read',isAuthenticated,getAllJobsWithStudents);
 
 
 //POST/ student/job/read/id
