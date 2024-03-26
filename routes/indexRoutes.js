@@ -13,7 +13,6 @@ const {
     studentavatar,
     applyinternship,
     applyjob,
-    readJobData
 
 } = require("../controllers/indexController");
 const { isAuthenticated } = require("../middlewares/auth");
@@ -49,9 +48,6 @@ router.post("/student/update/:id", isAuthenticated, studentupdate);
 
 // POST / student/avatar/studentid
 router.post("/student/avatar/:id", isAuthenticated, studentavatar);
-
-
-router.post('/student/job/read', isAuthenticated, readJobData);
 
 
 
