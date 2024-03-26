@@ -172,64 +172,6 @@ exports.studentavatar = catchAsyncErrors(async (req, res, next) => {
 
 
 
-//==============read Internships===================
-
-exports.studentreadinternship = catchAsyncErrors(async (req, res, next) => {
-    const { internships } = await Employe.findById(req.id).populate("internships").exec();
-    res.status(200).json({
-        success: true,
-        internships
-    });
-});
-
-
-
-
-
-
-
-//============read jobs===========================
-
-
-//read all jobs 
-
-exports.getAllJobsWithStudents = catchAsyncErrors(async (req, res, next) => {
-    const studentId = req.id; // Assuming the student ID is stored in req.id
-    const student = await Student.findById(studentId).populate("jobs").exec();
-
-    if (!student) {
-        return res.status(404).json({
-            success: false,
-            message: "Student not found"
-        });
-    }
-
-    res.status(200).json({
-        success: true,
-        jobs: student.jobs
-    });
-});
-
-
-
-
-
-
-
-
-
-//read single job by his id
-exports.studentreadsinglejob = catchAsyncErrors(async (req, res, next) => {
-    const job = await Job.findById(req.params.id).exec();
-    res.status(200).json({
-        success: true,
-        job,
-    });
-});
-
-
-
-
 
 
 // ------------------apply internship-------------------
