@@ -232,7 +232,6 @@ exports.createjob = catchAsyncErrors(async (req, res, next) => {
 
 exports.readjob = catchAsyncErrors(async (req, res, next) => {
     const { jobs } = await Employe.findById(req.id).populate("jobs").exec();
-
     res.status(200).json({
         success: true,
         jobs
@@ -242,8 +241,6 @@ exports.readjob = catchAsyncErrors(async (req, res, next) => {
 
 exports.readsinglejob = catchAsyncErrors(async (req, res, next) => {
     const job = await Job.findById(req.params.id).exec();
-
-
     res.status(200).json({
         success: true,
         job,

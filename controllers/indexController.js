@@ -170,8 +170,51 @@ exports.studentavatar = catchAsyncErrors(async (req, res, next) => {
 });
 
 
-// ------------------apply internship-------------------
 
+//==============read Internships===================
+
+exports.studentreadinternship = catchAsyncErrors(async (req, res, next) => {
+    const { internships } = await Student.findById(req.id).populate("internships").exec();
+    res.status(200).json({
+        success: true,
+        internships
+    });
+});
+
+
+
+
+
+
+
+//============read jobs===========================
+
+
+//read all jobs 
+exports.studentreadjob = catchAsyncErrors(async (req, res, next) => {
+    const { jobs } = await Student.findById(req.id).populate("jobs").exec();
+    res.status(200).json({
+        success: true,
+        jobs
+    });
+}); 
+
+
+//read single job by his id
+exports.studentreadsinglejob = catchAsyncErrors(async (req, res, next) => {
+    const job = await Job.findById(req.params.id).exec();
+    res.status(200).json({
+        success: true,
+        job,
+    });
+});
+
+
+
+
+
+
+// ------------------apply internship-------------------
 
 
 exports.applyinternship = catchAsyncErrors(async (req, res, next) => {
