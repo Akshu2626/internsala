@@ -210,3 +210,33 @@ exports.applyjob = catchAsyncErrors(async (req, res, next) => {
 
 
 
+
+
+exports.studentreadjob=catchAsyncErrors(async (req,res,next)=>{
+
+    try {
+        // Fetching data from your schema
+        const data = await Job.find(); // Assuming you are using Mongoose for MongoDB
+        res.json(data);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server Error' });
+    }
+
+
+})
+
+
+// studentreadinternship
+
+exports.studentreadinternship=catchAsyncErrors(async (req,res,next)=>{
+    try {
+        // Fetching data from your schema
+        const data = await Internship.find(); // Assuming you are using Mongoose for MongoDB
+        res.json(data);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server Error' });
+    }
+
+})
